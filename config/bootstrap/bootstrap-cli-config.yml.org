@@ -66,39 +66,19 @@ bootstrap:
               - cdf-group: cdf:all:read
                 idp-source-id: 3075d793-b42f-4bdb-b9b3-daa7b153b0d9 # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-48-test-all-read # i.e. bootcamp-01-test-all-read
-        - cdf-project: bootcamp-48-prod # i.e. bootcamp-01-test
-          mappings:
-              - cdf-group: cdf:root
-                idp-source-id: 98b3516c-9668-4c60-a1b1-5350af822a34
-                idp-source-name: bootcamp-48-prod-admin
-              - cdf-group: cdf:all:owner
-                idp-source-id: eee62f0f-6629-451a-b5bb-504afeb8266c # for the AAD Group to be matched to cdf-group
-                idp-source-name: bootcamp-48-prod-all-owner # i.e. bootcamp-01-test-all-owner
-              - cdf-group: cdf:all:read
-                idp-source-id: 8885b890-e143-4564-97c3-848cdddaec7e # for the AAD Group to be matched to cdf-group
-                idp-source-name: bootcamp-48-prod-all-read # i.e. bootcamp-01-test-all-read
-    namespaces:
-        # Typical config will have separate namespace by data source ("src") and use cases ("uc")
-        - ns-name: src
-          description: Sources used for data extraction
-          # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
-          ns-nodes:
-              - node-name: src:001:sap
-                description: Source 01 data from SAP
-              - node-name: src:002:opcua
-                description: Source 02 data from opcua
-        # Typical config will have separate namespace by data source ("src") and use cases ("uc")
-        - ns-name: uc
-          description: Use cases representing the data/products
 
-          # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
+
+    namespaces:
+        # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
+        - ns-name: <Namespace name>
+          description: Data sources for the Ice Cream Factory # HINT
+
+          # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
-              - node-name: uc:001:oee
-                description: Use case 001 Over all Equipment effectiveness
-                shared-access:
-                    read:
-                        - node-name: src:001:sap
-                        - node-name: src:002:opcua
+              - node-name: <Node name>
+                description: Data from SAP # HINT
+        # HINT: Add another namespace below
+
 
 # de-facto standards for CDF CogniteClient and logger configuration.
 # Following the same parameter structure as the 'Cognite Python Extractor-Utilities'
